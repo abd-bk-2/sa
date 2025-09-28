@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salamapvc - Menuiserie PVC de Qualité</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-orange': '#ed7b24',
+                        'brand-orange-light': '#f59e56',
+                        'brand-orange-dark': '#d4691e'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Section -->
+    <div class="bg-white shadow-sm">
+        <div class="max-w-md mx-auto px-6 py-8 text-center">
+            <!-- Logo/Company Image -->
+            <div class="mb-6 bg-white">
+                <img src="image.png" alt="Salamapvc Logo" class="w-full h-24 p-6 mx-auto object-contain">
+            </div>
+            
+            <!-- Company Description -->
+            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Entreprise familiale créée en 2016, spécialisée dans la fabrication et la pose de menuiserie PVC : 
+                    fenêtres, portes, baies vitrées et vitrines. Représentant exclusif du label WINSA du GROUPE BELGE DECEUNINCK.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links Section -->
+    <div class="max-w-md mx-auto px-6 py-6 space-y-4">
+        
+        <!-- Contact WhatsApp -->
+        <a href="#contact" class="block">
+            <div class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-green-500">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-envelope text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">Contactez-nous</h3>
+                        <p class="text-sm text-gray-600">Email</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+        </a>
+
+        <!-- Téléphone -->
+        <a href="#contact" class="block">
+            <div class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-brand-orange">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center">
+                <i class="fas fa-phone text-white text-xl"></i>
+                </div>
+                <div class="flex-1">
+                <h3 class="font-semibold text-gray-800">Appelez-nous</h3>
+                <p class="text-sm text-gray-600">Service client</p>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+            </div>
+        </a>
+
+        <!-- Localisation -->
+        <a href="https://www.google.com/maps/place/SARL+Salama+P.V.C/@35.568506,6.159036,535m/data=!3m1!1e3!4m6!3m5!1s0x12f411f1472ea785:0xba4243882279ba38!8m2!3d35.5685062!4d6.1590356!16s%2Fg%2F11dfjyzwst?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="block">
+            <div class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-blue-500">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">Notre Localisation</h3>
+                        <p class="text-sm text-gray-600">Trouvez-nous</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+        </a>
+
+        <!-- Catalogue/Services with Dropdown -->
+        <div class="relative">
+            <div onclick="toggleProductDropdown()" class="cursor-pointer bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-purple-500">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-th-large text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">Nos Produits</h3>
+                        <p class="text-sm text-gray-600">Catalogue</p>
+                    </div>
+                    <i id="product-chevron" class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </div>
+            </div>
+            
+            <!-- Dropdown Menu -->
+            <div id="product-dropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border z-10">
+                <div class="p-2 space-y-1">
+                    <!-- PORTES -->
+                    <a href="https://salamapvc.com/portes/" class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-door-open text-purple-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">PORTES</h4>
+                            <p class="text-xs text-gray-500">Portes PVC sur mesure</p>
+                        </div>
+                    </a>
+                    
+                    <!-- FENÊTRES -->
+                    <a href="https://salamapvc.com/fenetres/" class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-window-maximize text-purple-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">FENÊTRES</h4>
+                            <p class="text-xs text-gray-500">Fenêtres haute qualité</p>
+                        </div>
+                    </a>
+                    
+                    <!-- VOLETS -->
+                    <a href="https://salamapvc.com/volet-roulant/" class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-bars text-purple-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">VOLETS</h4>
+                            <p class="text-xs text-gray-500">Volets PVC résistants</p>
+                        </div>
+                    </a>
+                    
+                    <!-- BAIE VITRÉE -->
+                    <a href="https://salamapvc.com/baie-vitree/" class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-expand-arrows-alt text-purple-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">BAIE VITRÉE</h4>
+                            <p class="text-xs text-gray-500">Baies vitrées modernes</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devis Gratuit -->
+        <a href="http://salamapvc.com/#ledevis" target="_blank" class="block">
+            <div class="bg-gradient-to-r from-brand-orange to-brand-orange-light rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-calculator text-brand-orange text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-white">Devis Gratuit</h3>
+                        <p class="text-sm text-white/90">Estimation personnalisée</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-white"></i>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-md mx-auto px-6 py-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6 text-center">Nos Avantages</h3>
+            <div class="space-y-6">
+                <!-- Produits de qualité -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-award text-brand-orange text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Produits de qualité</h4>
+                        <p class="text-sm text-gray-600">Menuiserie PVC de haute qualité avec certification</p>
+                    </div>
+                </div>
+
+                <!-- Variété de nos gammes -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-th-large text-brand-orange text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Variété de nos gammes</h4>
+                        <p class="text-sm text-gray-600">Large choix de fenêtres, portes et solutions PVC</p>
+                    </div>
+                </div>
+
+                <!-- Garantie du service après-vente -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-headset text-brand-orange text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Garantie du service après-vente</h4>
+                        <p class="text-sm text-gray-600">Support continu et maintenance assurée</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Locations Section -->
+    <div class="max-w-md mx-auto px-6 py-6" id="contact">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6 text-center">Nos Agences</h3>
+            
+            <!-- Batna -->
+            <div class="mb-6 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0 last:mb-0">
+                <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800">Batna</h4>
+                </div>
+                <div class="ml-11 space-y-2">
+                    <a href="mailto:batna1c@salamapvc.com" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-envelope text-brand-orange mr-2"></i>
+                        batna1c@salamapvc.com
+                    </a>
+                    <a href="tel:+213560976487" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-phone text-brand-orange mr-2"></i>
+                        0560976487/88
+                    </a>
+                </div>
+            </div>
+
+            <!-- Alger -->
+            <div class="mb-6 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0 last:mb-0">
+                <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800">Alger</h4>
+                </div>
+                <div class="ml-11 space-y-2">
+                    <a href="mailto:alger1c@salamapvc.com" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-envelope text-brand-orange mr-2"></i>
+                        alger1c@salamapvc.com
+                    </a>
+                    <a href="tel:+213560976490" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-phone text-brand-orange mr-2"></i>
+                        0560976490/88
+                    </a>
+                </div>
+            </div>
+
+            <!-- Constantine -->
+            <div class="mb-6 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0 last:mb-0">
+                <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800">Constantine</h4>
+                </div>
+                <div class="ml-11 space-y-2">
+                    <a href="mailto:constantine1c@salamapvc.com" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-envelope text-brand-orange mr-2"></i>
+                        constantine1c@salamapvc.com
+                    </a>
+                    <a href="tel:+213560976491" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-phone text-brand-orange mr-2"></i>
+                        0560976491/92/88
+                    </a>
+                </div>
+            </div>
+
+            <!-- Oran -->
+            <div class="mb-6 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0 last:mb-0">
+                <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800">Oran</h4>
+                </div>
+                <div class="ml-11 space-y-2">
+                    <a href="mailto:oran1c@salamapvc.com" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-envelope text-brand-orange mr-2"></i>
+                        oran1c@salamapvc.com
+                    </a>
+                    <a href="tel:+213560976493" class="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors">
+                        <i class="fas fa-phone text-brand-orange mr-2"></i>
+                        0560976493/94/88
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="max-w-md mx-auto px-6 py-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-gray-800">Nos Réalisations</h3>
+                <div class="flex items-center text-brand-orange">
+                    <i class="fas fa-camera text-sm mr-1"></i>
+                    <span class="text-sm font-medium">Galerie</span>
+                </div>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-3 gap-2 mb-4">
+                <!-- Row 1 -->
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image0.jpg')">
+                    <img src="galerie/image0.jpg" alt="Réalisation Salamapvc 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image1.jpg')">
+                    <img src="galerie/image1.jpg" alt="Réalisation Salamapvc 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image2.jpg')">
+                    <img src="galerie/image2.jpg" alt="Réalisation Salamapvc 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image3.jpg')">
+                    <img src="galerie/image3.jpg" alt="Réalisation Salamapvc 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image4.jpg')">
+                    <img src="galerie/image4.jpg" alt="Réalisation Salamapvc 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image5.jpg')">
+                    <img src="galerie/image5.jpg" alt="Réalisation Salamapvc 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image6.jpg')">
+                    <img src="galerie/image6.jpg" alt="Réalisation Salamapvc 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image7.jpg')">
+                    <img src="galerie/image7.jpg" alt="Réalisation Salamapvc 8" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="relative aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openLightbox('galerie/image8.jpg')">
+                    <img src="galerie/image8.jpg" alt="Réalisation Salamapvc 9" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-plus text-2xl mb-1"></i>
+                            <p class="text-xs font-medium">Plus de photos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Button -->
+            <div class="text-center">
+                <button onclick="viewAllPhotos()" class="inline-flex items-center px-4 py-2 bg-brand-orange text-white rounded-lg hover:bg-brand-orange-dark transition-colors text-sm font-medium">
+                    <i class="fas fa-images mr-2"></i>
+                    Voir toutes les photos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-md w-full">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70 transition-colors z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightbox-image" src="" alt="Gallery Image" class="w-full h-auto rounded-lg">
+            <div class="absolute bottom-4 left-4 right-4 text-center">
+                <div class="bg-black bg-opacity-50 rounded-lg px-4 py-2">
+                    <p class="text-white text-sm" id="lightbox-caption">Réalisation Salamapvc</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="max-w-md mx-auto px-6 py-8 text-center">
+        <p class="text-xs text-gray-500 mb-2">© 2025 Salamapvc - Tous droits réservés</p>
+        <p class="text-xs text-gray-400">Entreprise familiale depuis 2016</p>
+    </footer>
+
+    <!-- Custom JavaScript for smooth interactions -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth hover effects
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-1px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click feedback
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('product-dropdown');
+                const chevron = document.getElementById('product-chevron');
+                const productSection = e.target.closest('[onclick="toggleProductDropdown()"]');
+                
+                if (dropdown && chevron && !productSection && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                    chevron.classList.remove('fa-chevron-up');
+                    chevron.classList.add('fa-chevron-down');
+                }
+            });
+
+            // Close lightbox and dropdown with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                    // Also close product dropdown on Escape
+                    const dropdown = document.getElementById('product-dropdown');
+                    const chevron = document.getElementById('product-chevron');
+                    if (dropdown && chevron) {
+                        dropdown.classList.add('hidden');
+                        chevron.classList.remove('fa-chevron-up');
+                        chevron.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeLightbox();
+                    }
+                });
+            }
+        });
+
+        // Global functions that need to be accessible from onclick attributes
+        function toggleProductDropdown() {
+            const dropdown = document.getElementById('product-dropdown');
+            const chevron = document.getElementById('product-chevron');
+            
+            if (dropdown && chevron) {
+                if (dropdown.classList.contains('hidden')) {
+                    dropdown.classList.remove('hidden');
+                    chevron.classList.remove('fa-chevron-down');
+                    chevron.classList.add('fa-chevron-up');
+                } else {
+                    dropdown.classList.add('hidden');
+                    chevron.classList.remove('fa-chevron-up');
+                    chevron.classList.add('fa-chevron-down');
+                }
+            }
+        }
+
+        // Gallery Functions
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            if (lightbox && lightboxImage && lightboxCaption) {
+                lightboxImage.src = imageSrc;
+                lightboxCaption.textContent = 'Réalisation Salamapvc - Menuiserie PVC';
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function viewAllPhotos() {
+            // You can link this to a full gallery page or social media
+            window.open('https://salamapvc.com/#projects', '_blank');
+        }
+    </script>
+</body>
+</html>
